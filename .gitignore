@@ -1,0 +1,13 @@
+# IDE
+.idea/
+
+# DB
+*.sqlite3
+*.json
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Project
+temp/
