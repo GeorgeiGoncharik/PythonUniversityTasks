@@ -15,7 +15,7 @@ class MyTestCase(unittest.TestCase):
         inc_counter(1, 2, 3)
         assert counter == 1
 
-        inc_counter("one", "twp")
+        inc_counter("one", "two") #в аргументах была опечатка из-за который тест работал некорректно
         assert counter == 2
 
         inc_counter(1, 2, 3)

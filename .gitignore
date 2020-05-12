@@ -9,5 +9,5 @@
 __pycache__/
 *.py[cod]
 
-# Project
-temp/
+#project
+numbers

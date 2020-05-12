@@ -10,20 +10,22 @@ class VectorException(Exception):
 
 
 class Vector:
+
     def __init__(self, *args):
         for argument in args:
             if not isinstance(argument, (int, float)):
                 raise VectorException("Type {} is not valid for vector".format(type(argument)))
 
+        self.coordinates = []
         if len(args):
-            self.coordinates = []
             for element in args:
                 self.coordinates.append(element)
-
-            self.dimension = len(self.coordinates)
         else:
             self.coordinates.append(0)
-            self.dimension = 1
+
+    @property
+    def dimension(self):
+        return len(self.coordinates)
 
     def __repr__(self):
         return "Vector ({})".format(", ".join(str(coordinate) for coordinate in self.coordinates))
@@ -92,7 +94,7 @@ class Vector:
         if index < self.dimension:
             return self.coordinates[index]
         else:
-            raise VectorException()
+            raise IndexError()
 
     def __eq__(self, other):
         if self.dimension == other.dimension:

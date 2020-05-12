@@ -1,14 +1,14 @@
 def cached(function):
     cache = dict()
 
-    def cache_data(*args):
-        string_args = str(args)
+    def cache_data(*args, **kwargs):
+        key = (tuple(args), hash(tuple(sorted(kwargs.items()))))
 
-        if string_args in cache:
-            return cache[string_args]
+        if key in cache:
+            return cache[key]
         else:
-            result = function(*args)
-            cache[string_args] = result
-            return result
+            value = function(*args)
+            cache[key] = value
+            return value
 
     return cache_data
